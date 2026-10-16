@@ -19,21 +19,25 @@ Timing, pace and fillers are measured, not guessed by the model. The model judge
 
 If no ElevenLabs key is set, or the quota runs out, the app falls back to the browser's built-in voice.
 
-## Run it yourself
+## Quickstart
 
-Needs Docker.
+Check what you have: `docker --version`, `ollama --version`, `node --version`. You need either Docker, or Ollama + Node 18+.
 
-```bash
-cp .env.example .env        # add ELEVENLABS_API_KEY (optional)
-docker compose up -d        # starts Ollama, pulls the model, starts the app
-# open http://localhost:3000
-```
-
-Without Docker: install [Ollama](https://ollama.com), `ollama pull qwen2.5:3b-instruct`, then
+With Docker:
 
 ```bash
-ELEVENLABS_API_KEY=... node server.js     # Node 18+, no npm install needed
+docker compose up         # starts Ollama, pulls qwen2.5:3b-instruct (~1.9 GB first time), starts the app
+# open http://localhost:3000 (Chrome or Edge for the mic)
 ```
+
+Without Docker: install [Ollama](https://ollama.com), then
+
+```bash
+ollama pull qwen2.5:3b-instruct   # or reuse a model you have: OLLAMA_MODEL=gemma3:4b node server.js
+node server.js                    # Node 18+, no npm install needed
+```
+
+Fully offline after the model pull. Health check: http://localhost:3000/api/health. First feedback takes 10-30 s on CPU - normal.
 
 Try the UI without a model: `COACH_MOCK=1 node server.js` returns canned feedback.
 
