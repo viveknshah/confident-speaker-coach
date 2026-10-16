@@ -1,0 +1,26 @@
+# One command self-host: docker compose up -d
+# First start pulls the model (about 2 GB). The app reports "Model offline" until that finishes.
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes: [ollama:/root/.ollama]
+    restart: unless-stopped
+    # GPU optional. For NVIDIA add:  deploy: {resources: {reservations: {devices: [{capabilities: [gpu]}]}}}
+  pull-model:
+    image: ollama/ollama:latest
+    depends_on: [ollama]
+    environment: [OLLAMA_HOST=ollama:11434]
+    entrypoint: ["ollama", "pull", "${OLLAMA_MODEL:-qwen2.5:3b-instruct}"]
+    restart: "no"
+  app:
+    build: .
+    ports: ["3000:3000"]
+    depends_on: [ollama]
+    environment:
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:3b-instruct}
+      ELEVENLABS_API_KEY: ${ELEVENLABS_API_KEY:-}
+      ELEVENLABS_VOICE_ID: ${ELEVENLABS_VOICE_ID:-JBFqnCBsd6RMkjVDRZzb}
+    restart: unless-stopped
+volumes:
+  ollama:

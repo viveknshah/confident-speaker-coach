@@ -1,0 +1,25 @@
+:root{--bg:#0f1420;--card:#171e2e;--ink:#eef1f7;--mute:#9aa6bd;--acc:#ffb703;--ok:#3ddc97;--bad:#ff5d73}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+main{max-width:680px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0;font-size:28px}.sub{color:var(--mute);margin-top:4px}
+.card{background:var(--card);border-radius:14px;padding:20px;margin-top:18px}
+.hidden{display:none}.label{color:var(--mute);font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.topic{font-size:24px;font-weight:600;margin:8px 0 16px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button{border:0;border-radius:10px;padding:12px 18px;font-size:16px;cursor:pointer}
+.primary{background:var(--acc);color:#1b1b1b;font-weight:700}.ghost{background:#26304a;color:var(--ink)}
+.hint{color:var(--mute);font-size:14px}
+.clock{font-size:64px;font-weight:700;text-align:center;font-variant-numeric:tabular-nums}
+.zone{text-align:center;color:var(--mute);margin-bottom:12px}
+.zone.ok{color:var(--ok)}.zone.bad{color:var(--bad)}
+.transcript{min-height:70px;max-height:160px;overflow:auto;background:#10151f;border-radius:8px;padding:10px;margin-bottom:14px;color:var(--mute)}
+textarea,input{width:100%;background:#10151f;color:var(--ink);border:1px solid #2a3350;border-radius:8px;padding:10px;font:inherit}
+input{width:90px}
+.len{font-weight:600;margin-bottom:8px}.len.bad{color:var(--bad)}.len.ok{color:var(--ok)}
+.score{font-size:56px;font-weight:800}.score small{font-size:20px;color:var(--mute)}
+.bar{margin:8px 0}.bar .t{display:flex;justify-content:space-between;font-size:14px}
+.bar .b{height:8px;background:#26304a;border-radius:4px;overflow:hidden}.bar .b i{display:block;height:100%;background:var(--acc)}
+.note{margin:14px 0}.note b{display:block;color:var(--acc);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.spinner{display:inline-block;width:16px;height:16px;border:3px solid #333;border-top-color:var(--acc);border-radius:50%;animation:s 1s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}
+footer{color:var(--mute);font-size:13px;margin-top:24px;text-align:center}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Confident Speaker Coach</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<main>
+  <header>
+    <h1>Confident Speaker Coach</h1>
+    <p class="sub">Impromptu speaking practice. Get a topic, speak 1-2 minutes, get scored on the Toastmasters ballot and coached out loud.</p>
+  </header>
+
+  <section id="topicCard" class="card">
+    <div class="label">Your topic</div>
+    <div id="topic" class="topic">...</div>
+    <div class="row">
+      <button id="newTopic" class="ghost">New topic</button>
+      <button id="start" class="primary">Start speaking</button>
+    </div>
+    <p id="support" class="hint"></p>
+  </section>
+
+  <section id="live" class="card hidden">
+    <div id="clock" class="clock">0:00</div>
+    <div id="zone" class="zone">Contest window: 1:00 - 2:30</div>
+    <div id="transcript" class="transcript" aria-live="polite"></div>
+    <button id="stop" class="primary">I'm done</button>
+  </section>
+
+  <section id="manual" class="card hidden">
+    <div class="label">No microphone transcript? Paste or type your speech</div>
+    <textarea id="typed" rows="6" placeholder="Type or paste what you said"></textarea>
+    <div class="row"><input id="typedSecs" type="number" min="10" max="400" value="120"> <span class="hint">seconds spoken</span>
+    <button id="submitTyped" class="primary">Coach me</button></div>
+  </section>
+
+  <section id="busy" class="card hidden"><div class="spinner"></div> Your coach is listening to the tape...</section>
+
+  <section id="result" class="card hidden">
+    <div id="len" class="len"></div>
+    <div class="score"><span id="total"></span><small>/100</small></div>
+    <div class="bars" id="bars"></div>
+    <div id="notes"></div>
+    <div class="row"><button id="again" class="primary">Next topic</button><button id="replay" class="ghost">Hear coach again</button></div>
+  </section>
+
+  <footer>Open-weight model served by Ollama. Coach voice by ElevenLabs. <span id="status"></span></footer>
+</main>
+<script src="app.js" type="module"></script>
+</body></html>
