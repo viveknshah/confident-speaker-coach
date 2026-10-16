@@ -50,3 +50,9 @@ The app server is tiny. Ollama needs a host with about 4 GB of RAM for a 3B mode
 - Live transcription depends on the browser (Chrome and Edge work best). Other browsers get the typed fallback.
 - Delivery scoring cannot hear tone, gesture or eye contact. It scores what the transcript and timing show.
 - A 3B model is a good practice partner, not a certified judge. Treat scores as a trend line.
+
+## Deploy a public demo
+
+- **Any VPS with 4 GB RAM** (Hetzner, DigitalOcean, ~$6-8/mo): clone, `cp .env.example .env`, add your ElevenLabs key, `docker compose up -d`. Put it behind Caddy or nginx for HTTPS. This is the cheapest always-on option.
+- **Render**: this repo includes `render.yaml`. New Blueprint instance, paste `ELEVENLABS_API_KEY` when asked. Use a 4 GB plan, or set `OLLAMA_MODEL=qwen2.5:1.5b-instruct` on the 2 GB plan. Free tier is too small for the model.
+- **No server?** Record a video demo instead: run `docker compose up` on a laptop, screen-record a full round (topic -> speech -> scored feedback -> spoken verdict).

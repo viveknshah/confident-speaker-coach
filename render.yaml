@@ -1,0 +1,15 @@
+# One-click-ish deploy on Render (https://render.com). Needs a plan with
+# at least 4 GB RAM for the default model (qwen2.5:3b-instruct).
+# The free tier (512 MB) is NOT enough for Ollama + a 3B model.
+services:
+  - type: web
+    name: confident-speaker-coach
+    runtime: docker
+    plan: standard # 2 GB: swap OLLAMA_MODEL to qwen2.5:1.5b-instruct, or use a 4 GB plan
+    envVars:
+      - key: OLLAMA_MODEL
+        value: qwen2.5:3b-instruct
+      - key: ELEVENLABS_API_KEY
+        sync: false # paste your key in the Render dashboard
+      - key: PORT
+        value: "3000"
