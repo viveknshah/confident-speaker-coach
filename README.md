@@ -1,6 +1,6 @@
 # Confident Speaker Coach
 
-Impromptu speaking practice in the browser. Open the link, get a Table Topics prompt, speak for 1-2 minutes, and get scored on the official Toastmasters ballot (Content 55 / Delivery 30 / Language 15) plus an audience-member view. The coach reads the verdict back to you in an ElevenLabs voice.
+Impromptu speaking practice in the browser. Open the link, get a Table Topics prompt, speak for 1-2 minutes, and get scored on the official Toastmasters ballot (Content 55 / Delivery 30 / Language 15) plus an audience-member view. The coach reads the verdict back to you - in an ElevenLabs voice if you set a key, otherwise your browser's built-in voice.
 
 **For users: nothing to install.** Open the hosted link, allow the microphone (Chrome or Edge), and speak.
 

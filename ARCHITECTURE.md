@@ -19,7 +19,7 @@ The coaching itself is an open-weight LLM served by Ollama. Remove it and the pr
 This keeps the number honest even when a small model is generous.
 
 ## ElevenLabs
-`/api/speak` proxies text to ElevenLabs text-to-speech so the key never reaches the browser. The coach reads a 3-sentence spoken verdict. Browser speech synthesis is the fallback.
+`/api/speak` optionally proxies text to ElevenLabs text-to-speech so the key never reaches the browser. Without a key (or on ElevenLabs free tier, which blocks API voices), the coach speaks through the browser's built-in speech synthesis - the default for this demo.
 
 ## Zero setup for users
 Hosted web app. Mic capture and live transcription run in the browser (Web Speech API), so no install, no API key, no model download for the end user.
